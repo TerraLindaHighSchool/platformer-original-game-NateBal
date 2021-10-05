@@ -16,4 +16,6 @@ public class Floor extends Platform
     {
         // Add your action code here.
     }
+    
+    protected void fall(){} 
 }

@@ -99,20 +99,47 @@ public class Player extends Actor
         {
             isWalking = false;
         }
+        
+        if(Greenfoot.isKeyDown("d"))
+        {
+            if(isFacingLeft)
+            {
+                mirrorImages();
+            }
+            isWalking = true;
+            isFacingLeft = false;
+            move(speed);
+        }
+        
+        if(Greenfoot.isKeyDown("a"))
+        {
+            if(!isFacingLeft)
+            {
+                mirrorImages();
+            }
+            isWalking = true;
+            isFacingLeft = true;
+            move(-speed);
+        }
+        
+        if(! Greenfoot.isKeyDown("d") && ! Greenfoot.isKeyDown("a"))
+        {
+            isWalking = false;
+        }
     }
     
     private void jump() 
     {
-        if(Greenfoot.isKeyDown("up") && isOnGround())
+        if(Greenfoot.isKeyDown("space") && isOnGround())
         {
             yVelocity = JUMP_FORCE;
             isJumping = true;
         }
         
-        if(isJumping = true && yVelocity > 0)
+        if(isJumping && yVelocity > 0.0)
         {
             setLocation(getX(), getY() - (int) yVelocity);
-            yVelocity = yVelocity - GRAVITY;
+            yVelocity -= GRAVITY;
         } 
         else
         {
@@ -122,11 +149,12 @@ public class Player extends Actor
     
     private void fall() 
     {
-        if(isJumping = false && !isOnGround())
+        if(!isJumping && !isOnGround())
         {
             setLocation(getX(), getY() - (int) yVelocity);
-            yVelocity = yVelocity - GRAVITY;
+            yVelocity -= GRAVITY;
         }
+        
     }
     
     private void animator() 
@@ -145,11 +173,48 @@ public class Player extends Actor
         }
         frame++;
     }
-    private void onCollision() {}
-    private void mirrorImages() {}
-    private void gameOver() {}
-    private boolean isOnGround()
+    
+    private void onCollision() 
     {
-        return false;
+        if(isTouching(Door.class))
+        {
+            World world = null;
+            try 
+            {
+                world = (World) NEXT_LEVEL.newInstance();
+            }   
+            catch (InstantiationException e) 
+            {
+                System.out.println("Class cannot be instantiated");
+            } catch (IllegalAccessException e) {
+                System.out.println("Cannot access class constructor");
+            } 
+            Greenfoot.setWorld(world);
+        }
+        
+        if(isTouching(Obstacle.class))
+        {
+            removeTouching(Obstacle.class);
+        }
+        
+        if(isTouching(Platform.class) && !isOnGround())
+        {
+            yVelocity = -1;
+            fall();
+        }
+    }
+    private void mirrorImages() 
+    {
+        for(int i = 0; i <WALK_ANIMATION.length; i++)
+        {
+            WALK_ANIMATION[i].mirrorHorizontally();
+        }
+    }
+    private void gameOver() {}
+    protected boolean isOnGround()
+    {
+        Actor ground = getOneObjectAtOffset(0,getImage().getHeight() / 
+                                            2, Platform.class);
+        return ground != null;
     }
 }

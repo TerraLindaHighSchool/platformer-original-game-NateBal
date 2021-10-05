@@ -59,6 +59,10 @@ public class Level1 extends World
         SmBrickWall smBrickWall = new SmBrickWall();
         addObject(new Trapdoor(GRAVITY), 575, 600);
         addObject(new Trapdoor(GRAVITY), 925, 400);
+        BrickWall brickWall15 = new BrickWall();
+        addObject(brickWall15,372,648);
+        brickWall15.setLocation(381,645);
+        removeObject(brickWall15);
     }
     
     private void spawn()
