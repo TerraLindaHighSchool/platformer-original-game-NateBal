@@ -10,6 +10,13 @@ public class Level1 extends World
 {
     private final float GRAVITY = 0.0667f;
     private final GreenfootSound MUSIC = new GreenfootSound("zapsplat_024.mp3");
+    private final int SPEED = 3;
+    private final float JUMP_FORCE = 5.6f;
+    private final int MAX_HEALTH = 3;
+    private final int MAX_POWERUP = 3;
+    private final Class NEXT_LEVEL = Level2.class;
+    
+    
     /**
      * Constructor for objects of class BrickWorld.
      * 
@@ -17,7 +24,7 @@ public class Level1 extends World
     public Level1()
     {    
         // Create a new world with 1200x800 cells with a cell size of 1x1 pixels.
-        super(1200, 800, 1, false); 
+        super(1200, 700, 1, false); 
         prepare();
     }
     
@@ -36,10 +43,10 @@ public class Level1 extends World
             Door.class, HUD.class);
         Door door = new Door();
         addObject(new Door(), 1137, 50);
-        Player player = new Player(3, 5.6f, GRAVITY, 3, 3, Level2.class, MUSIC);
-        addObject(player, 53, 662);
-        addObject(new Bomb(GRAVITY), 225, 775);
-        addObject(new Bomb(GRAVITY), 725, 775);
+        Player player = new Player(SPEED, JUMP_FORCE, GRAVITY, 
+                           MAX_HEALTH, MAX_POWERUP, NEXT_LEVEL, MUSIC);
+        addObject(new Bomb(GRAVITY), 225, 675);
+        addObject(new Bomb(GRAVITY), 725, 675);
         addObject(new Bomb(GRAVITY), 1075, 375);
         addObject(new BrickWall(), 1125, 100);
         addObject(new BrickWall(), 1175, 100);
@@ -55,7 +62,7 @@ public class Level1 extends World
         addObject(new BrickWall(), 1075, 200);
         addObject(new BrickWall(), 875, 400);
         addObject(new BrickWall(), 925, 250);
-        addObject(new Floor(), 600, 800);
+        addObject(new Floor(), 600, 700);
         SmBrickWall smBrickWall = new SmBrickWall();
         addObject(new Trapdoor(GRAVITY), 575, 600);
         addObject(new Trapdoor(GRAVITY), 925, 400);
