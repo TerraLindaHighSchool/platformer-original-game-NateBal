@@ -209,6 +209,12 @@ public class Player extends Actor
             } 
             Greenfoot.setWorld(world);
         }
+                
+        if(isTouching(Lava.class))
+        {
+            MUSIC.stop();
+            Greenfoot.setWorld(new Level1());
+        }
         
         if(isTouching(Obstacle.class))
         {

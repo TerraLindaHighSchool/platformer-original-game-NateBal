@@ -37,4 +37,9 @@ public abstract class Obstacle extends Actor
     {
         // Add your action code here.
     }
+    
+    public void turnAtEdge()
+    {
+        
+    }
 }

@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Level4 extends World
 {
-    private final float GRAVITY = 0.1f;
+    private final float GRAVITY = 0.06f;
     private final GreenfootSound MUSIC = new GreenfootSound("incompetech_tribal.mp3");
     private final int SPEED = 3;
     private final float JUMP_FORCE = 5.6f;
@@ -46,30 +46,25 @@ public class Level4 extends World
         Player player = new Player(SPEED, JUMP_FORCE, GRAVITY, 
                 MAX_HEALTH, MAX_POWERUP, NEXT_LEVEL, MUSIC);
         addObject(new Player(SPEED, JUMP_FORCE, GRAVITY, MAX_HEALTH, MAX_POWERUP, NEXT_LEVEL, MUSIC), 96, 650);
-        addObject(new Bomb(GRAVITY), 225, 675);
-        addObject(new Bomb(GRAVITY), 725, 675);
-        addObject(new Bomb(GRAVITY), 1075, 375);
-        addObject(new BrickWall(), 1125, 100);
-        addObject(new BrickWall(), 1175, 100);
-        addObject(new BrickWall(), 302,594);
-        addObject(new BrickWall(), 425, 650);
-        addObject(new BrickWall(), 475, 650);
-        addObject(new BrickWall(), 255,455);
-        addObject(new BrickWall(), 425, 500);
-        addObject(new BrickWall(), 358,347);
-        addObject(new BrickWall(), 775, 450);
-        addObject(new BrickWall(), 725, 400);
-        addObject(new BrickWall(), 775, 250);
-        addObject(new BrickWall(), 1075, 200);
-        addObject(new BrickWall(), 875, 400);
-        addObject(new BrickWall(), 925, 250);
-        addObject(new BrickWall(),1075,423);
-        addObject(new BrickWall(),1053,325);
-        addObject(new Floor(), 600, 700);
-        SmBrickWall smBrickWall = new SmBrickWall();
-        addObject(new Trapdoor(GRAVITY), 575, 600);
-        addObject(new Trapdoor(GRAVITY), 925, 400);
 
+        addObject(new Floor(), 600, 700);
+        addObject(new BrickWall(),1168,100);
+        addObject(new BrickWall(),1116,100);
+        addObject(new SmBrickWall(),188,508);
+        addObject(new SmBrickWall(),278,353);
+        addObject(new SmBrickWall(),371,204);
+        addObject(new SmBrickWall(),468,73);
+        addObject(new SmBrickWall(),654,150);
+        addObject(new SmBrickWall(),796,311);
+        addObject(new SmBrickWall(),942,455);
+        addObject(new SmBrickWall(),1096,343);
+        addObject(new SmBrickWall(),1021,218);
+        addObject(new Alien(GRAVITY), 1000, 200);
+        addObject(new Alien(GRAVITY), 1000, 400);
+        addObject(new Alien(GRAVITY), 1000, 600);
+        addObject(new Alien(GRAVITY), 1000, 800);
+        addObject(new Alien(GRAVITY), 1000, 300);
+        addObject(new Alien(GRAVITY), 1000, 500);
     }
     
     private void spawn()
