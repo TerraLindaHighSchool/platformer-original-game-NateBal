@@ -14,7 +14,7 @@ public class Level2 extends World
     private final float JUMP_FORCE = 5.6f;
     private final int MAX_HEALTH = 3;
     private final int MAX_POWERUP = 3;
-    private final Class NEXT_LEVEL = Level2.class;
+    private final Class NEXT_LEVEL = Level3.class;
     
     /**
      * Constructor for objects of class BrickWorld.
@@ -43,32 +43,24 @@ public class Level2 extends World
         Door door = new Door();
         addObject(new Door(), 1137, 50);
         Player player = new Player(SPEED, JUMP_FORCE, GRAVITY, 
-                           MAX_HEALTH, MAX_POWERUP, NEXT_LEVEL, MUSIC);
-        addObject(new Bomb(GRAVITY), 225, 675);
-        addObject(new Bomb(GRAVITY), 725, 675);
-        addObject(new Bomb(GRAVITY), 1075, 375);
-        addObject(new BrickWall(), 1125, 100);
-        addObject(new BrickWall(), 1175, 100);
-        addObject(new BrickWall(), 275, 700);
-        addObject(new BrickWall(), 425, 650);
-        addObject(new BrickWall(), 475, 650);
-        addObject(new BrickWall(), 325, 550);
-        addObject(new BrickWall(), 425, 500);
-        addObject(new BrickWall(), 575, 450);
-        addObject(new BrickWall(), 775, 450);
-        addObject(new BrickWall(), 725, 400);
-        addObject(new BrickWall(), 775, 250);
-        addObject(new BrickWall(), 1075, 200);
-        addObject(new BrickWall(), 875, 400);
-        addObject(new BrickWall(), 925, 250);
+                MAX_HEALTH, MAX_POWERUP, NEXT_LEVEL, MUSIC);
+        addObject(new Player(SPEED, JUMP_FORCE, GRAVITY, MAX_HEALTH, MAX_POWERUP, NEXT_LEVEL, MUSIC), 96, 650);
         addObject(new Floor(), 600, 700);
         SmBrickWall smBrickWall = new SmBrickWall();
-        addObject(new Trapdoor(GRAVITY), 575, 600);
-        addObject(new Trapdoor(GRAVITY), 925, 400);
-        BrickWall brickWall15 = new BrickWall();
-        addObject(brickWall15,372,648);
-        brickWall15.setLocation(381,645);
-        removeObject(brickWall15);
+        addObject(new Trapdoor(GRAVITY), 524,545);
+        addObject(new Trapdoor(GRAVITY), 728,439);
+        addObject(new Trapdoor(GRAVITY), 840,212);
+        addObject(new Trapdoor(GRAVITY), 537,354);
+        addObject(new BrickWall(),278,453);
+        addObject(new BrickWall(),137,207);
+        addObject(new BrickWall(),408,72);
+        addObject(new BrickWall(),456,545);
+        addObject(new BrickWall(),621,130);
+        addObject(new BrickWall(),916,125);
+        addObject(new BrickWall(),1096,103);
+        addObject(new BrickWall(),1149,101);
+        addObject(new BrickWall(),75,367);
+        addObject(new BrickWall(),338,159);
     }
     
     private void spawn()
