@@ -216,16 +216,21 @@ public class Player extends Actor
             Greenfoot.setWorld(new Level1());
         }
         
+        if(isTouching(Trapdoor.class))
+        {
+            Greenfoot.playSound("Trapdoor_open.mp3");
+        }
+        
+        if(isTouching(Bomb.class))
+        {
+            Greenfoot.playSound("bomb_sound.wav");
+        }
+        
         if(isTouching(Obstacle.class))
         {
             removeTouching(Obstacle.class);
             getWorld().removeObject(health[healthCount -1]);
             healthCount--;
-        }
-        
-        if(isTouching(Bomb.class))
-        {
-            Greenfoot.playSound("explosionSmall.png");
         }
         
         if(isTouching(Platform.class) && !isOnGround())
