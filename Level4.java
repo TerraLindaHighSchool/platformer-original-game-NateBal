@@ -9,10 +9,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Level4 extends World
 {
     private final float GRAVITY = 0.06f;
-    private final GreenfootSound MUSIC = new GreenfootSound("incompetech_tribal.mp3");
+    private final GreenfootSound MUSIC = new GreenfootSound("triumphant-long-6673.mp3");
     private final int SPEED = 3;
     private final float JUMP_FORCE = 5.6f;
-    private final int MAX_HEALTH = 3;
+    private final int MAX_HEALTH = 5;
     private final int MAX_POWERUP = 3;
     private final Class NEXT_LEVEL = WinSplash.class;
     
@@ -31,6 +31,7 @@ public class Level4 extends World
     public void act()
     {
         spawn();
+        MUSIC.play();
     }
     
     /**
@@ -60,11 +61,11 @@ public class Level4 extends World
         addObject(new SmBrickWall(),1096,343);
         addObject(new SmBrickWall(),1021,218);
         addObject(new Alien(GRAVITY), 1000, 200);
-        addObject(new Alien(GRAVITY), 1000, 400);
-        addObject(new Alien(GRAVITY), 1000, 600);
-        addObject(new Alien(GRAVITY), 1000, 800);
-        addObject(new Alien(GRAVITY), 1000, 300);
-        addObject(new Alien(GRAVITY), 1000, 500);
+        addObject(new Alien(GRAVITY), 1000, 450);
+        addObject(new Alien(GRAVITY), 1000, 150);
+        addObject(new Alien(GRAVITY), 1000, 100);
+        addObject(new Alien(GRAVITY), 1000, 350);
+        addObject(new Alien(GRAVITY), 1000, 550);
     }
     
     private void spawn()

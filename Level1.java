@@ -9,10 +9,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Level1 extends World
 {
     private final float GRAVITY = 0.1f;
-    private final GreenfootSound MUSIC = new GreenfootSound("incompetech_tribal.mp3");
+    private final GreenfootSound MUSIC = new GreenfootSound("Jazz.wav");
     private final int SPEED = 3;
     private final float JUMP_FORCE = 5.6f;
-    private final int MAX_HEALTH = 3;
+    private final int MAX_HEALTH = 5;
     private final int MAX_POWERUP = 3;
     private final Class NEXT_LEVEL = Level2.class;
     
@@ -31,6 +31,7 @@ public class Level1 extends World
     public void act()
     {
         spawn();
+        MUSIC.play();
     }
     
     /**

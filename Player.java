@@ -69,6 +69,10 @@ public class Player extends Actor
         world.addObject(health[1], 72, 36);
         health[2] = new Health();
         world.addObject(health[2], 114, 36);
+        health[3] = new Health();
+        world.addObject(health[3], 156, 36);
+        health[4] = new Health();
+        world.addObject(health[4], 198, 36);
         healthCount = health.length;
     }
     
@@ -86,7 +90,7 @@ public class Player extends Actor
         
         if(Greenfoot.isKeyDown("right"))
         {
-            if(MUSIC.isPlaying())
+            if(!MUSIC.isPlaying())
             {
                 MUSIC.playLoop();
             }
@@ -197,6 +201,7 @@ public class Player extends Actor
         {
             Greenfoot.playSound("door_open.wav");
             World world = null;
+            MUSIC.stop();
             try 
             {
                 world = (World) NEXT_LEVEL.newInstance();
