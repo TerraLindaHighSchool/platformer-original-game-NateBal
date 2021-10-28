@@ -221,6 +221,12 @@ public class Player extends Actor
             Greenfoot.setWorld(new Level1());
         }
         
+        if(isTouching(BigTrap.class))
+        {
+            MUSIC.stop();
+            Greenfoot.setWorld(new Level1());
+        }
+        
         if(isTouching(Trapdoor.class))
         {
             Greenfoot.playSound("Trapdoor_open.mp3");

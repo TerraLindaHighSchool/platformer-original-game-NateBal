@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Level1 extends World
 {
     private final float GRAVITY = 0.1f;
-    private final GreenfootSound MUSIC = new GreenfootSound("Jazz.wav");
+    private final GreenfootSound MUSIC = new GreenfootSound("Jazz.mp3");
     private final int SPEED = 3;
     private final float JUMP_FORCE = 5.6f;
     private final int MAX_HEALTH = 5;
